@@ -21,7 +21,7 @@ func NewDomain(name string, path string) (*Domain, error) {
 		Languages: make(map[string]*Catalog),
 	}
 	for _, f := range files {
-		fs := strings.Split(f, "/")
+		fs := strings.Split(f, string(filepath.Separator))
 		langCode := strings.ToLower(fs[len(fs)-3])
 		fd, err := os.Open(f)
 		if err != nil {
